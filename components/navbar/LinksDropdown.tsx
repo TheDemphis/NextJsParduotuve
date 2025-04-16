@@ -9,24 +9,47 @@ import { LuAlignLeft } from 'react-icons/lu'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { NavLinks } from '@/utils/links'
+import UserIcon from './UserIcon'
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs'
+import SignOutLink from './SignOutLink'
 const LinksDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex max-w-24 gap-3" asChild>
         <Button variant="outline">
           <LuAlignLeft className="w-6 h-6" />
+          <UserIcon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="center">
-        {NavLinks.map((item) => {
-          return (
-            <DropdownMenuItem key={item.href} className="capitalize">
-              <Link href={item.href} className="w-full">
-                {item.label}
-              </Link>
-            </DropdownMenuItem>
-          )
-        })}
+        <SignedOut>
+          <DropdownMenuItem>
+            <SignInButton mode="modal">
+              <button className="w-full">Prisijungti</button>
+            </SignInButton>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignUpButton mode="modal">
+              <button className="w-full">Registruotis</button>
+            </SignUpButton>
+          </DropdownMenuItem>
+        </SignedOut>
+        <SignedIn>
+          {NavLinks.map((item) => {
+            return (
+              <DropdownMenuItem key={item.href} className="capitalize">
+                <Link href={item.href} className="w-full">
+                  {item.label}
+                </Link>
+              </DropdownMenuItem>
+            )
+          })}
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignOutLink />
+          </DropdownMenuItem>
+        </SignedIn>
       </DropdownMenuContent>
     </DropdownMenu>
   )
