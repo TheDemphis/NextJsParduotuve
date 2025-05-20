@@ -21,7 +21,7 @@ export function FormContainer({
     if (state.message) {
       toast({ description: state.message })
     }
-  }, [state])
+  }, [state, toast])
   return <form action={actionFunc}>{children}</form>
 }
 export default FormContainer

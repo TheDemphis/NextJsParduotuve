@@ -32,7 +32,7 @@ export const GET = async (req: NextRequest) => {
     let message = 'Įvyko serverio klaida'
 
     if (error instanceof Stripe.errors.StripeError) {
-      return (message = 'Mokėjimo paslauga nepasiekiama')
+      return new Response('Mokėjimo paslauga nepasiekiama', { status: 503 })
     }
 
     return Response.json(null, {
