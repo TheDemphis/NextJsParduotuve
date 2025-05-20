@@ -12,7 +12,11 @@ import { NavLinks } from '@/utils/links'
 import UserIcon from './UserIcon'
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs'
 import SignOutLink from './SignOutLink'
+import { auth } from '@clerk/nextjs/server'
 const LinksDropdown = () => {
+  const { userId } = auth()
+  const isAdmin = userId === process.env.ADMIN_ID
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex max-w-24 gap-3" asChild>
@@ -37,6 +41,7 @@ const LinksDropdown = () => {
         </SignedOut>
         <SignedIn>
           {NavLinks.map((item) => {
+            if (item.label === 'dashboard' && !isAdmin) return null
             return (
               <DropdownMenuItem key={item.href} className="capitalize">
                 <Link href={item.href} className="w-full">

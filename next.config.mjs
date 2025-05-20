@@ -14,8 +14,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'img.clerk.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'vlybgdthygocbqkqbbxj.supabase.co',
+      },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

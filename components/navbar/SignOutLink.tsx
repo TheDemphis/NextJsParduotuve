@@ -6,7 +6,10 @@ import { SignOutButton } from '@clerk/nextjs'
 const SignOutLink = () => {
   const { toast } = useToast()
   const handleSignOut = () => {
-    toast({ description: 'Sėkmingai atsijugėte' })
+    toast({
+      description: 'Sėkmingai atsijugėte',
+      className: 'bg-slate-700 text-white',
+    })
   }
 
   return (

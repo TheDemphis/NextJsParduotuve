@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 function EmptyList({
-  heading = 'Nera tokiu prekiu',
+  heading = 'Nėra tokių prekių',
   classname,
 }: {
   heading?: string

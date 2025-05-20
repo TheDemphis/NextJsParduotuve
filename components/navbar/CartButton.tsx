@@ -1,8 +1,9 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { Button } from '../ui/button'
 import Link from 'next/link'
+import { fetchCartItems } from '@/utils/actions'
 async function CartButton() {
-  const itemsInCart = 10
+  const itemsInCart = fetchCartItems()
   return (
     <Button
       asChild

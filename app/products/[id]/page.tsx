@@ -1,15 +1,22 @@
 import BreadCrumbs from '@/components/singleProduct/BreadCrumbs'
-import { fetchSingleProduct } from '@/utils/actions'
+import { fetchSingleProduct, findReview } from '@/utils/actions'
 import Image from 'next/image'
 import { formatCurrency } from '@/utils/format'
 import FavoriteToggleButton from '@/components/products/FavoriteToggleButton'
 import AddToCart from '@/components/singleProduct/cartButton'
 import ProductRating from '@/components/singleProduct/ProductRating'
+import ShareBtns from '@/components/singleProduct/ShareBtns'
+import SubmitReview from '@/components/reviews/SubmitReview'
+import ProdReviews from '@/components/reviews/ProdReviews'
+import { auth } from '@clerk/nextjs/server'
 
 async function page({ params }: { params: { id: string } }) {
   const product = await fetchSingleProduct(params.id)
   const { name, price, image, company, description } = product
   const formattedPrice = formatCurrency(price)
+  const { userId } = auth()
+
+  const noReview = userId && !(await findReview(userId, product.id))
   return (
     <section>
       <BreadCrumbs name={name} />
@@ -27,7 +34,10 @@ async function page({ params }: { params: { id: string } }) {
         <div>
           <div className="flex gap-x-6 capitalize font-bold text-2xl ">
             <h1>{name}</h1>
-            <FavoriteToggleButton productId={params.id} />
+            <div className="flex items-center gap-x-3">
+              <FavoriteToggleButton productId={params.id} />
+              <ShareBtns productId={params.id} name={name} />
+            </div>
           </div>
           <ProductRating productId={params.id} />
           <h4 className="font-medium text-lg mt-3">{company}</h4>
@@ -36,6 +46,8 @@ async function page({ params }: { params: { id: string } }) {
           <AddToCart productId={params.id} />
         </div>
       </div>
+      <ProdReviews productId={params.id} />
+      {noReview && <SubmitReview productId={params.id} />}
     </section>
   )
 }
