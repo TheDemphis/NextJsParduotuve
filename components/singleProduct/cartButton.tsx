@@ -7,7 +7,7 @@ import { SubmitButton } from '../form/Buttons'
 import { addToCart } from '@/utils/actions'
 import { useAuth } from '@clerk/nextjs'
 import { CartSignIn } from '../form/Buttons'
-function cartButton({ productId }: { productId: string }) {
+function CartButton({ productId }: { productId: string }) {
   const [amount, setAmount] = useState(1)
   const { userId } = useAuth()
 
@@ -30,4 +30,4 @@ function cartButton({ productId }: { productId: string }) {
     </div>
   )
 }
-export default cartButton
+export default CartButton
