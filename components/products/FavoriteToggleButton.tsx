@@ -1,5 +1,3 @@
-import { Button } from '../ui/button'
-import { FaHeart } from 'react-icons/fa'
 import FavoriteToggleForm from './FavoriteToggleForm'
 import { auth } from '@clerk/nextjs/server'
 import { FetchFavorites } from '@/utils/actions'

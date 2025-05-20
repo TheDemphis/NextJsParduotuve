@@ -14,7 +14,10 @@ function CartSide({ id, itemCount }: { id: string; itemCount: number }) {
     setLoading(true)
     await updateCartItem({ amount: value, cartItemId: id })
     setAmount(value)
-    toast({ description: 'Prekės kiekis atnaujintas' })
+    toast({
+      description: 'Prekės kiekis atnaujintas',
+      className: 'bg-slate-700 text-white',
+    })
     setLoading(false)
   }
   return (

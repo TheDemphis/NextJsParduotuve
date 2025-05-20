@@ -7,7 +7,7 @@ const SignOutLink = () => {
   const { toast } = useToast()
   const handleSignOut = () => {
     toast({
-      description: 'Sėkmingai atsijugėte',
+      description: 'Sėkmingai atsijungėte',
       className: 'bg-slate-700 text-white',
     })
   }

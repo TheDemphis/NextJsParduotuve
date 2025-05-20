@@ -41,7 +41,7 @@ const LinksDropdown = () => {
         </SignedOut>
         <SignedIn>
           {NavLinks.map((item) => {
-            if (item.label === 'dashboard' && !isAdmin) return null
+            if (item.label === 'Admin' && !isAdmin) return null
             return (
               <DropdownMenuItem key={item.href} className="capitalize">
                 <Link href={item.href} className="w-full">

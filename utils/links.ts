@@ -4,14 +4,14 @@ type NavLink = {
 }
 
 export const NavLinks: NavLink[] = [
-  { href: '/', label: 'home' },
-  { href: '/about', label: 'about' },
-  { href: '/products', label: 'products' },
-  { href: '/favorites', label: 'favorites' },
-  { href: '/reviews', label: 'reviews' },
-  { href: '/cart', label: 'cart' },
-  { href: '/orders', label: 'orders' },
-  { href: '/admin/sales', label: 'dashboard' },
+  { href: '/', label: 'Pagrindinis' },
+  { href: '/about', label: 'Apie' },
+  { href: '/products', label: 'Prekės' },
+  { href: '/favorites', label: 'Mėgstamiausios' },
+  { href: '/reviews', label: 'Įvertinimai' },
+  { href: '/cart', label: 'Krepšelis' },
+  { href: '/orders', label: 'Užsakymai' },
+  { href: '/admin/sales', label: 'Admin' },
 ]
 
 export const adminLinks: NavLink[] = [

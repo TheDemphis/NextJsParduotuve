@@ -19,7 +19,10 @@ export function FormContainer({
   const { toast } = useToast()
   useEffect(() => {
     if (state.message) {
-      toast({ description: state.message })
+      toast({
+        description: state.message,
+        className: 'bg-slate-700 text-white',
+      })
     }
   }, [state, toast])
   return <form action={actionFunc}>{children}</form>
