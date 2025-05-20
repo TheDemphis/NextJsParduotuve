@@ -3,7 +3,7 @@ import { fetchSingleProduct, findReview } from '@/utils/actions'
 import Image from 'next/image'
 import { formatCurrency } from '@/utils/format'
 import FavoriteToggleButton from '@/components/products/FavoriteToggleButton'
-import AddToCart from '@/components/singleProduct/CartButton'
+import AdDtoCartButton from '@/components/singleProduct/AddToCartButton'
 import ProductRating from '@/components/singleProduct/ProductRating'
 import ShareBtns from '@/components/singleProduct/ShareBtns'
 import SubmitReview from '@/components/reviews/SubmitReview'
@@ -43,7 +43,7 @@ async function page({ params }: { params: { id: string } }) {
           <h4 className="font-medium text-lg mt-3">{company}</h4>
           <p className="bg-muted mt-3 inline-block rounded">{formattedPrice}</p>
           <p className="text-slate-700 mt-8 leading-7">{description}</p>
-          <AddToCart productId={params.id} />
+          <AdDtoCartButton productId={params.id} />
         </div>
       </div>
       <ProdReviews productId={params.id} />
