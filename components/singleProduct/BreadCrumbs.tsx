@@ -12,13 +12,13 @@ function BreadCrumbs({ name }: { name: string }) {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/" className="text-lg">
-            Home
+            Pagrindinis
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbLink href="/products" className="text-lg">
-            Products
+            Visos prekės
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
